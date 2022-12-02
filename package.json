@@ -1,7 +1,7 @@
 {
   "name": "screwdriver-retry-function",
   "version": "0.0.1",
-  "description": "",
+  "description": "Wrapper to retry function calls with an exponential backoff strategy",
   "main": "index.js",
   "scripts": {
     "pretest": "eslint .",
