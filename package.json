@@ -1,37 +1,53 @@
 {
-  "name": "retry-function",
-  "version": "3.0.0",
-  "description": "Wrapper to retry function calls with an exponential backoff strategy",
+  "name": "screwdriver-retry-function",
+  "version": "0.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-summary mocha tests/*",
-    "lint": "eslint ."
+    "pretest": "eslint .",
+    "test": "nyc --report-dir ./artifacts/coverage --reporter=lcov mocha --reporter mocha-multi-reporters --reporter-options configFile=./mocha.config.json --recursive --timeout 4000 --retries 1 --exit --allow-uncaught true --color true"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/petey/retry-function.git"
+    "url": "git+https://github.com/screwdriver-cd/retry-function.git"
   },
-  "author": "Pete Peterson <petey31@yahoo.com>",
-  "bugs": {
-    "url": "https://github.com/petey/retry-function/issues"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "homepage": "https://github.com/petey/retry-function",
+  "homepage": "https://github.com/screwdriver-cd/retry-function",
+  "bugs": "https://github.com/screwdriver-cd/screwdriver/issues",
+  "keywords": [
+    "screwdriver",
+    "yahoo"
+  ],
+  "license": "BSD-3-Clause",
+  "author": "klu909 <klu13960@gmail.com>",
+  "contributors": [
+    "Alan Dong <alandong2016@gmail.com>",
+    "Dao Lam <daolam112@gmail.com>",
+    "Dekus Lam <dekusdenial@hotmail.com>",
+    "Jithin Emmanuel <jithin1987@gmail.com>",
+    "Kevin Lu <klu13960@gmail.com>",
+    "Lakshminarasimhan Parthasarathy <laky@ymail.com>",
+    "Pritam Paul <pritam.paul09@hotmail.com>",
+    "Tiffany Kyi <tiffanykyi@gmail.com>"
+  ],
   "dependencies": {
-    "joi": "^17.3.0",
-    "retry": "^0.12.0"
+    "joi": "^17.7.0",
+    "retry": "^0.13.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.12.1",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "jenkins-mocha": "^8.0.0",
-    "mocha": "^8.2.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.28.0",
+    "eslint-config-screwdriver": "^7.0.0",
+    "mocha": "^10.1.0",
+    "mocha-multi-reporters": "^1.5.1",
+    "mocha-sonarqube-reporter": "^1.0.2",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.1"
+    "mockery": "^2.1.0",
+    "sinon": "^15.0.0"
   },
-  "license": "MIT"
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "release": {
+    "debug": false
+  }
 }

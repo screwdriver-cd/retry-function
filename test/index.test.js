@@ -1,8 +1,4 @@
-/* eslint-env mocha */
-
-// Copyright 2015 Yahoo Inc.
-// Licensed under the MIT license.
-// See the included LICENSE file for terms.
+'use strict';
 
 const sinon = require('sinon');
 const { assert } = require('chai');
@@ -17,8 +13,8 @@ describe('retry-function test case', () => {
     });
 
     describe('retryFn', () => {
-        it('should not retry if first run successful', (done) => {
-            myCallback = (err) => {
+        it('should not retry if first run successful', done => {
+            myCallback = err => {
                 assert.isNull(err);
                 assert.isTrue(myFunc.calledOnce);
                 done();
@@ -28,14 +24,14 @@ describe('retry-function test case', () => {
 
             retryFn(
                 {
-                    method: myFunc,
+                    method: myFunc
                 },
-                myCallback,
+                myCallback
             );
         });
 
-        it('should retry fn until success', (done) => {
-            myCallback = (err) => {
+        it('should retry fn until success', done => {
+            myCallback = err => {
                 assert.isNull(err);
                 assert.isTrue(myFunc.calledThrice);
                 done();
@@ -49,15 +45,15 @@ describe('retry-function test case', () => {
                     method: myFunc,
                     options: {
                         minTimeout: 10,
-                        retries: 5,
-                    },
+                        retries: 5
+                    }
                 },
-                myCallback,
+                myCallback
             );
         });
 
-        it('should have error if never succeeds', (done) => {
-            myCallback = (err) => {
+        it('should have error if never succeeds', done => {
+            myCallback = err => {
                 assert.isNotNull(err);
                 assert.equal(err.message, 'nope');
                 assert.isTrue(myFunc.calledThrice);
@@ -71,15 +67,15 @@ describe('retry-function test case', () => {
                     method: myFunc,
                     options: {
                         minTimeout: 10,
-                        retries: 2,
-                    },
+                        retries: 2
+                    }
                 },
-                myCallback,
+                myCallback
             );
         });
 
-        it('should not continue if shouldRetry says not to', (done) => {
-            myCallback = (err) => {
+        it('should not continue if shouldRetry says not to', done => {
+            myCallback = err => {
                 assert.isNotNull(err);
                 assert.equal(err.message, 'yep');
                 assert.isTrue(myFunc.calledThrice);
@@ -92,13 +88,13 @@ describe('retry-function test case', () => {
             retryFn(
                 {
                     method: myFunc,
-                    shouldRetry: (err) => err.message === 'nope',
+                    shouldRetry: err => err.message === 'nope',
                     options: {
                         minTimeout: 10,
-                        retries: 5,
-                    },
+                        retries: 5
+                    }
                 },
-                myCallback,
+                myCallback
             );
         });
 
@@ -108,7 +104,7 @@ describe('retry-function test case', () => {
                     retryFn({}, () => ({}));
                 },
                 Error,
-                '"method" is required',
+                '"method" is required'
             );
         });
 
@@ -118,7 +114,7 @@ describe('retry-function test case', () => {
                     retryFn({});
                 },
                 Error,
-                '"callback" must be a function',
+                '"callback" must be a function'
             );
         });
     });

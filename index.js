@@ -1,6 +1,4 @@
-// Copyright 2015 Yahoo Inc.
-// Licensed under the MIT license.
-// See the included LICENSE file for terms.
+'use strict';
 
 const retry = require('retry');
 const joi = require('joi');
@@ -15,8 +13,9 @@ const joi = require('joi');
 function execRetry(config, callback) {
     const c = config;
 
-    c.shouldRetry = c.shouldRetry
-        || function shouldRetry() {
+    c.shouldRetry =
+        c.shouldRetry ||
+        function shouldRetry() {
             return true;
         };
     c.options = c.options || {};
@@ -60,13 +59,13 @@ function validateRetry(config, callback) {
                     factor: joi.number().optional(),
                     minTimeout: joi.number().optional(),
                     maxTimeout: joi.number().optional(),
-                    randomize: joi.boolean().optional(),
+                    randomize: joi.boolean().optional()
                 })
                 .optional(),
             context: joi.object().optional(),
             arguments: joi.array().optional(),
             shouldRetry: joi.func().optional(),
-            method: joi.func().required(),
+            method: joi.func().required()
         })
         .required();
 
@@ -77,9 +76,7 @@ function validateRetry(config, callback) {
     const result = schema.validate(config);
 
     if (result.error) {
-        throw new Error(
-            result.error.details.map((detail) => detail.message).join(','),
-        );
+        throw new Error(result.error.details.map(detail => detail.message).join(','));
     }
 
     execRetry(config, callback);
