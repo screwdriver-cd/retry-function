@@ -2,7 +2,7 @@
 Wrapper to retry function calls with an exponential backoff strategy
 
 ## Installation:
-```npm install --save retry-function```
+```npm install --save screwdriver-retry-function```
 
 ## Usage:
 Pass a function and callback to retryFn and it will retry with exponential backoff.
