@@ -1,3 +1,5 @@
+[![Version][npm-image]][npm-url]  [![Build Status][status-image]][status-url] [![Open Issues][issues-image]][issues-url] ![License][license-image]
+
 # retry-function
 Wrapper to retry function calls with an exponential backoff strategy
 
@@ -76,3 +78,17 @@ retryFn({
 ```
 
 Code licensed under the MIT license. See LICENSE file for terms.
+
+[![Version][npm-image]][npm-url] 
+[![Build Status][status-image]][status-url] 
+[![Open Issues][issues-image]][issues-url] 
+![License][license-image]
+
+[npm-image]: https://img.shields.io/npm/v/screwdriver-retry-function.svg
+[npm-url]: https://npmjs.org/package/screwdriver-retry-function
+[license-image]: https://img.shields.io/badge/license-MIT-green
+[issues-image]: https://img.shields.io/github/issues/screwdriver-cd/screwdriver.svg
+[issues-url]: https://github.com/screwdriver-cd/screwdriver/issues
+[status-image]: https://cd.screwdriver.cd/pipelines/10797/badge
+[status-url]: https://cd.screwdriver.cd/pipelines/10797
+[screwdriver job-tools]: https://github.com/screwdriver-cd/job-tools
