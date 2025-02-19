@@ -1,6 +1,6 @@
 {
   "name": "screwdriver-retry-function",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Wrapper to retry function calls with an exponential backoff strategy",
   "main": "index.js",
   "scripts": {
@@ -30,13 +30,13 @@
     "Tiffany Kyi <tiffanykyi@gmail.com>"
   ],
   "dependencies": {
-    "joi": "^17.7.0",
+    "joi": "^17.13.3",
     "retry": "^0.13.1"
   },
   "devDependencies": {
     "chai": "^4.3.7",
-    "eslint": "^8.28.0",
-    "eslint-config-screwdriver": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-screwdriver": "^8.0.0",
     "mocha": "^10.1.0",
     "mocha-multi-reporters": "^1.5.1",
     "mocha-sonarqube-reporter": "^1.0.2",
@@ -45,7 +45,7 @@
     "sinon": "^15.0.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   },
   "release": {
     "debug": false
